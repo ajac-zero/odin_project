@@ -1,0 +1,79 @@
+body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding: 10px;
+}
+
+.header-img {
+    max-width: 170px;
+    height: auto;
+}
+
+.title {
+    font-size: 50px;
+    margin: 0;
+}
+
+.instructions {
+    font-size: 30px;
+}
+
+.container {
+    padding: 20px;
+    flex-grow: 1;
+}
+.combat-ui {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 100vw;
+    gap: 20px;
+    flex: 1;
+}
+
+.option {
+    max-width: 300px;
+}
+
+.option:hover {
+    cursor: pointer;
+}
+
+.scores-ui {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.sprite {
+    max-width: 200px;
+}
+
+.score-title, .message {
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+}
+
+.player-ui {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.score-points {
+    text-align: center;
+    font-size: 200px;
+    margin: 0;
+}

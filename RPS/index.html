@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon RPS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img class='header-img' src="images/PokemonChampionship.png" alt="championship">
+        <div class="header-text">
+            <h1 class="title">Pokemon Tournament!</h1>
+            <div class="instructions"> Choose your fighter...</div>    
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section class="combat-ui">
+                <img class="option" data-option="rock" src="images/charizard.gif" alt="fire">
+                <img class="option" data-option="paper" src="images/blaustoise.gif" alt="water">
+                <img class="option" data-option="scissors" src="images/venosaur.gif" alt="grass">    
+            </section>
+        </div>
+
+        <section class="scores-ui">
+            <div class="player-ui">
+                <div>
+                    <img class='sprite' src="images/red.gif" alt="you">
+                    <p class="score-title">Your Score</p>
+                </div>
+                <p class="score-points" data-score="player">0</p>
+            </div>
+            <div class="player-ui" data-message="message">
+                <p class="message">Let's go!</p>
+            </div>
+            <div class="player-ui">
+                <p class="score-points" data-score="champion">0</p>
+                <div>
+                    <img class='sprite' src="images/blue.gif" alt="opponent">
+                    <p class="score-title">The Champion</p>
+                </div>
+            </div>
+            <script src="script.js"></script>
+        </section>
+   </main>
+</body>
+</html>
