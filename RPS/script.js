@@ -30,18 +30,26 @@ const fighters = Array.from(document.querySelectorAll('[data-option]'))
 let currentChoice = '';
 let rounds = 0;
 
+const POINTWON = '< Point!'
+const POINTLOST = 'Point! >'
+const TIE = 'Tie!'
+const WIN = 'You won!'
+const LOSE = 'You lost!'
+
 fighters.forEach(fighter => {
     fighter.addEventListener('click', () => {
         currentChoice = fighter.dataset.option;
         if (yourScore < 5 && championScore < 5) {
             playRound();
             if (yourScore === 5) {
-                console.log('You win!')
-                message.textContent = 'You win!'
+                console.log('You win!');
+                message.textContent = WIN;
+                message.classList.add('message');
                 resetGame()
             } else if (championScore == 5) {
-                console.log('You lose, try again!')
-                message.textContent = 'You lose, try again!'
+                console.log('You lose, try again!');
+                message.textContent = LOSE;
+                message.classList.add('message');
                 resetGame()           
             }
          }
@@ -57,13 +65,16 @@ function playRound() {
     if (currentChoice === championChoice.beatenby) {
         increaseyourScore();
         updateLeaderboard();
-        message.textContent = 'W!';
+        message.textContent = POINTWON;
+        message.classList.add('message');
     } else if (currentChoice === championChoice.beats) {
         increasechampionScore();
         updateLeaderboard();
-        message.textContent = 'L!';
+        message.textContent = POINTLOST;
+        message.classList.add('message');
     } else {
-        message.textContent ='Tie!';
+        message.textContent = TIE;
+        message.classList.add('message');
     }
 }
 
@@ -79,6 +90,5 @@ const message = document.querySelector('[data-message]')
 
 function resetGame() {
     yourScore = 0;
-    championScore = 0;
-    message.textContent = "Let's go!"   
+    championScore = 0;  
 }
