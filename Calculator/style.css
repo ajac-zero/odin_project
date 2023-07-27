@@ -1,0 +1,11 @@
+.row {
+    display: flex;
+    border-style: solid;
+    border-color: black;
+    border-width: thick;
+}
+.column {
+    border-style: solid;
+    border-color: black;
+    border-width: thick;
+}
