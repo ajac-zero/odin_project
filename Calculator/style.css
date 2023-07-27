@@ -1,11 +1,22 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#sketchpad {
+    margin: auto;
+    width:  500px;
+    height: 500px;
+    border-style: solid;
+    border-width: thick;
+    display: flex;
+    flex-direction: column;
+}
+
 .row {
     display: flex;
-    border-style: solid;
-    border-color: black;
-    border-width: thick;
+    flex: 1;
 }
 .column {
-    border-style: solid;
-    border-color: black;
-    border-width: thick;
+    flex: 1;
 }
