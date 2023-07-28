@@ -19,6 +19,4 @@ html, body {
 }
 .column {
     flex: 1;
-    border-style: solid;
-    border-width: thick;
 }

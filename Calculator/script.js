@@ -1,35 +1,29 @@
+// Select DOM nodes
 const sketchpad = document.querySelector('#sketchpad');
-const colorpicker = document.querySelector('#colorpicker');
-const sizepicker = document.querySelector('#sizepicker');
-const confirmbutton = document.querySelector('#confirmbutton');
+const colorPicker = document.querySelector('#colorPicker');
+const sizePicker = document.querySelector('#sizePicker');
+const confirmButton = document.querySelector('#confirmButton');
+const clearButton = document.querySelector('#clearButton');
 
 // Default values
-let pickedColor = colorpicker.value;
-let sketchpadSize = 16;
+let pickedColor = colorPicker.value;
+let sketchpadSize = sizePicker.value;
 
 // Change color
-function pickColor() {
-    colorpicker.addEventListener('input', () => {
-        pickedColor = colorpicker.value;
-        console.log(pickedColor)
-    })
-}
+colorPicker.addEventListener('input', () => {
+    pickedColor = colorPicker.value;
+});
 
 // Change sketchpad size
-function pickSize() {
-    sizepicker.addEventListener('input', () => {
-        sketchpadSize = sizepicker.value
-        console.log(sketchpadSize)
-    })
-}
+sizePicker.addEventListener('input', () => {
+        sketchpadSize = sizePicker.value
+});
 
-function changeSize() {
-    confirmbutton.addEventListener('click', () => {
-        clearSketchpad();
-        createRows(sketchpadSize);
-        createColumns(sketchpadSize);
-    })
-}
+
+confirmButton.addEventListener('click', () => {
+    createSketchpad(sketchpadSize);
+})
+
 
 // Create sketchpad
 function createRows(rows) {
@@ -51,6 +45,13 @@ function createColumns(columns) {
     });
 }
 
+function createSketchpad(size) {
+    clearSketchpad();
+    createRows(size);
+    createColumns(size);
+    makeColorable();
+}
+
 // Color sketchpad tiles
 function makeColorable() {
     let columns = document.querySelectorAll('div.column');
@@ -58,8 +59,8 @@ function makeColorable() {
         column.addEventListener('mousedown', () => {
             addColorTile(columns);
         })
+        column.addEventListener('click', colorTile);
     })
-    console.log(columns)
 }
 
 function addColorTile(columns) {
@@ -88,11 +89,10 @@ function clearSketchpad() {
     } ;
 }
 
+clearButton.addEventListener('click', () => {
+    createSketchpad(sketchpadSize)
+});
 
-// Runtime
-pickColor()
-pickSize()
-createRows(16)
-createColumns(16)
-makeColorable()
-changeSize()
+
+// Start!
+createSketchpad(sketchpadSize);
