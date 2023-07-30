@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Calculator time</h1>
+    <div id="Calculator">
+        <div id="Screen">
+            <div class="screenTop"></div>
+            <div class="screenBottom"></div>
+        </div>
+        <div id="Keypad">
+            <div id="Numbers">
+                <div class="row">
+                    <button class="numberButton" data-number="1">1</button>
+                    <button class="numberButton" data-number="2">2</button>
+                    <button class="numberButton" data-number="3">3</button>    
+                </div>
+                <div class="row">
+                    <button class="numberButton" data-number="4">4</button>
+                    <button class="numberButton" data-number="5">5</button>
+                    <button class="numberButton" data-number="6">6</button>    
+                </div>
+                <div class="row">
+                    <button class="numberButton" data-number="7">7</button>
+                    <button class="numberButton" data-number="8">8</button>
+                    <button class="numberButton" data-number="9">9</button>    
+                </div>
+                <div class="row">
+                    <button class="numberButton" data-number="0">0</button>
+                </div>
+            </div>
+            <div id="Operators">
+                <button class="operatorButton" data-operator="+">+</button>
+                <button class="operatorButton" data-operator="-">-</button>
+                <button class="operatorButton" data-operator="*">*</button>
+                <button class="operatorButton" data-operator="/">/</button>
+            </div>
+           <div id="Functions">
+            <button class="functionButton" data-function=".">.</button>
+            <button id="clearButton" data-function="clear">clear</button>
+            <button id="enterButton" class="functionButton" data-function="=">=</button>
+           </div>
+        </div>
+    </div>
+</body>
+</html>
