@@ -2,7 +2,7 @@
 let currentNumber = '';
 let pastNumber = '';
 let currentOperator = '';
-let displayValue = '';
+let result = '';
 
 // Operations
 const add = (a, b) => a + b;
@@ -43,8 +43,7 @@ numberButtons.forEach((numberButton) => {
 
 function createNumber (e) {
     currentNumber += e.target.dataset.number;
-    displayValue = currentNumber;
-    screenBottom.innerText = displayValue;
+    screenBottom.innerText = currentNumber;
 }
 
 operatorButtons.forEach((operatorButton) => {
@@ -53,17 +52,16 @@ operatorButtons.forEach((operatorButton) => {
 
 function loadNumber(e) {
     currentOperator = e.target.dataset.operator;
-    displayValue += e.target.dataset.operator;
+    screenTop.innerText += currentNumber
+    screenTop.innerText += e.target.dataset.operator;
     pastNumber = currentNumber;
     currentNumber = '';
-    screenTop.innerText = displayValue;
-    screenBottom.innerText = '0';
+    screenBottom.innerText = 0;
 }
 
 enterButton.addEventListener('click', () => {
-    let result = operate(currentNumber, pastNumber, currentOperator);
-    displayValue += currentNumber;
-    screenTop.innerText = displayValue;
+    result = operate(currentNumber, pastNumber, currentOperator);
+    screenTop.innerText += currentNumber;
     screenBottom.innerText = result;
 });
 
@@ -74,7 +72,7 @@ function clearCalculator() {
     currentNumber = '';
     pastNumber = '';
     currentOperator = '';
-    displayValue = '';
-    screenTop.innerText = displayValue;
-    screenBottom.innerText = displayValue;
+    result = '';
+    screenTop.innerText = '';
+    screenBottom.innerText = '';
 }
