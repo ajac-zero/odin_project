@@ -31,42 +31,51 @@ function operate(firstNumber, secondNumber, operator) {
     }
 }
 
+// Element wiring
 const screenTop = document.querySelector('#Screen > .screenTop');
 const screenBottom = document.querySelector('#Screen > .screenBottom');
-const numberButtons = document.querySelectorAll('.numberButton');
-const operatorButtons = document.querySelectorAll('.operatorButton');
+const numberButtons = document.querySelectorAll('.Button.Number');
+const operatorButtons = document.querySelectorAll('.Button.Operator');
 const enterButton = document.querySelector('#enterButton');
+const clearButton = document.querySelector('#clearButton');
 
 numberButtons.forEach((numberButton) => {
     numberButton.addEventListener('click', createNumber);
 });
 
-function createNumber (e) {
-    currentNumber += e.target.dataset.number;
+operatorButtons.forEach((operatorButton) => {
+    operatorButton.addEventListener('click', () => {
+        startOperation();
+    });
+});
+
+enterButton.addEventListener('click', () => {
+    result = operate(pastNumber, currentNumber, currentOperator);
+    endOperation();
+});
+
+// Functions
+clearButton.addEventListener('click', clearCalculator)
+
+function createNumber(e) {
+    currentNumber += e.target.dataset.key;
     screenBottom.innerText = currentNumber;
 }
 
-operatorButtons.forEach((operatorButton) => {
-    operatorButton.addEventListener('click', loadNumber);
-});
-
-function loadNumber(e) {
-    currentOperator = e.target.dataset.operator;
-    screenTop.innerText += currentNumber
-    screenTop.innerText += e.target.dataset.operator;
+function startOperation(e) {
+    currentOperator = e.target.dataset.key;
     pastNumber = currentNumber;
+    screenTop.innerText += pastNumber;
+    screenTop.innerText += e.target.dataset.key;
     currentNumber = '';
-    screenBottom.innerText = 0;
+    screenBottom.innerText = '0';
 }
 
-enterButton.addEventListener('click', () => {
-    result = operate(currentNumber, pastNumber, currentOperator);
-    screenTop.innerText += currentNumber;
+function endOperation() {
+    screenTop.innerText = '';
     screenBottom.innerText = result;
-});
-
-const clearButton = document.querySelector('#clearButton');
-clearButton.addEventListener('click', clearCalculator)
+    currentNumber = result;
+}
 
 function clearCalculator() {
     currentNumber = '';
